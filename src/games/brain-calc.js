@@ -1,52 +1,33 @@
-#!/usr/bin/env node
+import { cons } from '@hexlet/pairs';
+import startGame from '../index.js';
+import rnd from '../random.js';
 
-import readlineSync from 'readline-sync';
-import pattern from '../index.js';
+const info = 'What is the result of the expression?';
 
-export default () => {
-  console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name?: ');
-  console.log('Hello, ' + name + '!');
+const operators = ['+', '-', '*'];
 
-  function operations() {
-    let operation = '';
-    let randomNumber = Math.floor(Math.random() * 3);
-    if (randomNumber === 0) {
-      operation =
-        `${Math.floor(Math.random() * 10)}` +
-        '+' +
-        `${Math.floor(Math.random() * 10)}`;
-      return operation;
-    }
-    if (randomNumber === 1) {
-      operation =
-        `${Math.floor(Math.random() * 10)}` +
-        '-' +
-        `${Math.floor(Math.random() * 10)}`;
-      return operation;
-    }
-    if (randomNumber === 2) {
-      operation =
-        `${Math.floor(Math.random() * 10)}` +
-        '*' +
-        `${Math.floor(Math.random() * 10)}`;
-      return operation;
-    }
+const performOperation = (a, b, c) => {
+  switch (c) {
+    case '+':
+      return a + b;
+    case '-':
+      return a - b;
+    case '*':
+      return a * b;
+    default:
+      return null;
   }
-  function calc() {
-    for (let i = 0; i < 3; i++) {
-      let question = operations();
-      let answer = eval(question);
-      let userAnswer = pattern(question, answer);
-      if (userAnswer == false) {
-        console.log("Let's try again, " + name + '!');
-        break;
-      }
-      if (i === 2) {
-        console.log('Congratulations, ' + name + '!');
-        break;
-      }
-    }
-  }
-  calc();
 };
+
+const generateGameData = () => {
+  const num1 = rnd(1, 10);
+  const num2 = rnd(1, 10);
+  const operator =
+    operators[rnd(Math.floor(Math.random()), operators.length - 1)];
+  const question = `${num1} ${operator} ${num2}`;
+  const rightAnswer = String(performOperation(num1, num2, operator));
+
+  return cons(question, rightAnswer);
+};
+
+export default () => startGame(info, generateGameData);

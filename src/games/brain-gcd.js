@@ -1,35 +1,23 @@
-import readlineSync from 'readline-sync';
-import pattern from '../index.js';
+import { cons } from '@hexlet/pairs';
+import startGame from '../index.js';
+import rnd from '../random.js';
 
-export default () => {
-  console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name?: ');
-  console.log('Hello, ' + name + '!');
+const info = 'Find the greatest common divisor of given numbers.';
 
-  function getGCD(a, b) {
-    if (!b) {
-      return a;
-    }
-
-    return getGCD(b, a % b);
+const gcd = (a, b) => {
+  if (!b) {
+    return a;
   }
-
-  function gcd() {
-    for (let i = 0; i < 3; i++) {
-      let x = Math.floor(Math.random() * 99 + 1);
-      let y = Math.floor(Math.random() * 99 + 1);
-      let question = x + ' ' + y;
-      let answer = getGCD(x, y);
-      let userAnswer = pattern(question, answer);
-      if (userAnswer == false) {
-        console.log("Let's try again, " + name + '!');
-        break;
-      }
-      if (i === 2) {
-        console.log('Congratulations, ' + name + '!');
-        break;
-      }
-    }
-  }
-  gcd();
+  return gcd(b, a % b);
 };
+
+const createArgs = () => {
+  const num1 = rnd(1, 100);
+  const num2 = rnd(1, 100);
+  const question = `${num1} ${num2}`;
+  const rightAnswer = String(gcd(num1, num2));
+
+  return cons(question, rightAnswer);
+};
+
+export default () => startGame(info, createArgs);
