@@ -5,11 +5,11 @@ const rounds = 3;
 
 const startGame = (info, playRound) => {
   console.log('Welcome to the Brain Games!');
-  console.log(info);
 
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
 
+  console.log(info);
   for (let round = 0; round < rounds; round++) {
     const generation = playRound();
     const question = car(generation);

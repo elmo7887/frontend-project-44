@@ -11,7 +11,7 @@ const gcd = (a, b) => {
   return gcd(b, a % b);
 };
 
-const createArgs = () => {
+const createGame = () => {
   const num1 = rnd(1, 100);
   const num2 = rnd(1, 100);
   const question = `${num1} ${num2}`;
@@ -20,4 +20,4 @@ const createArgs = () => {
   return cons(question, rightAnswer);
 };
 
-export default () => startGame(info, createArgs);
+export default () => startGame(info, createGame);

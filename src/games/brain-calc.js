@@ -19,7 +19,7 @@ const performOperation = (a, b, c) => {
   }
 };
 
-const generateGameData = () => {
+const createGame = () => {
   const num1 = rnd(1, 10);
   const num2 = rnd(1, 10);
   const operator =
@@ -30,4 +30,4 @@ const generateGameData = () => {
   return cons(question, rightAnswer);
 };
 
-export default () => startGame(info, generateGameData);
+export default () => startGame(info, createGame);

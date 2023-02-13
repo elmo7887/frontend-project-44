@@ -4,7 +4,7 @@ import rnd from '../random.js';
 
 const info = 'What number is missing in the progression?';
 
-const createArgs = () => {
+const createGame = () => {
   const firstNum = rnd(1, 100);
   const step = rnd(1, 10);
   const progression = [];
@@ -22,4 +22,4 @@ const createArgs = () => {
   return cons(question, rightAnswer);
 };
 
-export default () => startGame(info, createArgs);
+export default () => startGame(info, createGame);
