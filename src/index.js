@@ -10,7 +10,7 @@ const startGame = (info, playRound) => {
   console.log(`Hello, ${name}!`);
 
   console.log(info);
-  for (let round = 0; round < rounds; round++) {
+  for (let round = 0; round < rounds; round += 1) {
     const generation = playRound();
     const question = car(generation);
     console.log(`Question: ${question}`);
