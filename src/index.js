@@ -22,7 +22,7 @@ const startGame = (info, playRound) => {
       console.log('Correct!');
     } else {
       console.log(
-        `'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'`
+        `'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'`,
       );
       console.log(`Let's try again, ${name}!`);
       return;
