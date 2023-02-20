@@ -1,5 +1,4 @@
 import readlineSync from 'readline-sync';
-import { car, cdr } from '@hexlet/pairs';
 
 const rounds = 3;
 
@@ -12,10 +11,10 @@ const startGame = (info, playRound) => {
   console.log(info);
   for (let round = 0; round < rounds; round += 1) {
     const generation = playRound();
-    const question = car(generation);
+    const question = generation[0];
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ').toLowerCase();
-    const rightAnswer = cdr(generation);
+    const rightAnswer = generation[1];
 
     const isRight = userAnswer === rightAnswer;
     if (isRight) {

@@ -1,4 +1,3 @@
-import { cons } from '@hexlet/pairs';
 import startGame from '../index.js';
 import rnd from '../random.js';
 
@@ -17,11 +16,12 @@ const isPrime = (num) => {
   return true;
 };
 
-const createGame = () => {
+const getAnswerAndQuestion = () => {
   const question = rnd(1, 100);
   const rightAnswer = isPrime(question) ? 'yes' : 'no';
 
-  return cons(question, rightAnswer);
+  const result = [question,rightAnswer]
+  return result
 };
 
-export default () => startGame(info, createGame);
+export default () => startGame(info, getAnswerAndQuestion);
