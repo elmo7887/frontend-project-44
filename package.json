@@ -19,9 +19,6 @@
   "homepage": "https://github.com/elmo7887/frontend-project-44#readme",
   "dependencies": {
     "@hexlet/pairs": "^1.1.1",
-    "eslint": "^8.33.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.27.5",
     "readline-sync": "^1.4.10"
   },
   "bin": {
@@ -33,6 +30,8 @@
     "brain-prime": "bin/brain-prime.js"
   },
   "devDependencies": {
-    "jest": "^29.4.2"
+    "eslint": "^8.33.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5"
   }
 }
