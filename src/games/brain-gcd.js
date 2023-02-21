@@ -7,7 +7,7 @@ const getGcd = (a, b) => {
   if (!b) {
     return a;
   }
-  return getGcd (b, a % b);
+  return getGcd(b, a % b);
 };
 
 const getAnswerAndQuestion = () => {
@@ -16,8 +16,8 @@ const getAnswerAndQuestion = () => {
   const question = `${num1} ${num2}`;
   const rightAnswer = String(getGcd(num1, num2));
 
-  const result = [question,rightAnswer]
-  return result
+  const result = [question, rightAnswer];
+  return result;
 };
 
 export default () => startGame(info, getAnswerAndQuestion);

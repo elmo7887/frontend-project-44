@@ -13,15 +13,14 @@ const createProgression = () => {
   return progression;
 };
 
-
 const getAnswerAndQuestion = () => {
-  const progression = createProgression()
-  const hidden = rnd(1,10)
-  const rightAnswer = String(progression[hidden])
-  progression[hidden] = '..'
-  const question = progression.join(' ')
-  const result = [question,rightAnswer]
-  return result
+  const progression = createProgression();
+  const hidden = rnd(1, 10);
+  const rightAnswer = String(progression[hidden]);
+  progression[hidden] = '..';
+  const question = progression.join(' ');
+  const result = [question, rightAnswer];
+  return result;
 };
 
 export default () => startGame(info, getAnswerAndQuestion);

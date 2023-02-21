@@ -20,8 +20,8 @@ const getAnswerAndQuestion = () => {
   const question = rnd(1, 100);
   const rightAnswer = isPrime(question) ? 'yes' : 'no';
 
-  const result = [question,rightAnswer]
-  return result
+  const result = [question, rightAnswer];
+  return result;
 };
 
 export default () => startGame(info, getAnswerAndQuestion);
