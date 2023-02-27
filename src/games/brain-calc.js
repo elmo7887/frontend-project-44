@@ -1,7 +1,7 @@
 import startGame from '../index.js';
 import rnd from '../random.js';
 
-const info = 'What is the result of the expression?';
+const description = 'What is the result of the expression?';
 
 const operators = ['+', '-', '*'];
 
@@ -24,8 +24,7 @@ const getAnswerAndQuestion = () => {
   const operator = operators[rnd(Math.floor(Math.random()), operators.length - 1)];
   const question = `${num1} ${operator} ${num2}`;
   const rightAnswer = String(calculate(num1, num2, operator));
-  const result = [question, rightAnswer];
-  return result;
+  return [question, rightAnswer];
 };
 
-export default () => startGame(info, getAnswerAndQuestion);
+export default () => startGame(description, getAnswerAndQuestion);
