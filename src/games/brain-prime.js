@@ -21,7 +21,6 @@ const getAnswerAndQuestion = () => {
   const rightAnswer = isPrime(question) ? 'yes' : 'no';
 
   return [question, rightAnswer];
-
 };
 
 export default () => startGame(descrtiption, getAnswerAndQuestion);

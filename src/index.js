@@ -10,7 +10,7 @@ const startGame = (description, playRound) => {
 
   console.log(description);
   for (let round = 0; round < rounds; round += 1) {
-    const [question,answer] = playRound();
+    const [question, answer] = playRound();
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ').toLowerCase();
     const rightAnswer = answer;
